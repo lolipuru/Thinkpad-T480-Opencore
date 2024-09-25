@@ -1,26 +1,23 @@
 # Lenovo ThinkPad T480 - OpenCore Configuation
 
-<img align="right" src="https://dl.exploitox.de/t480-oc/Hackintosh-T480-Sequoia.png" alt="macOS Sequoia running on the T480" width="425">
+<img align="right" src="https://shorturl.at/xbc4z" alt="macOS Sequoia running on the T480" width="425">
 
 [![macOS](https://img.shields.io/badge/macOS-Monterey-brightgreen.svg?logo=apple)](https://developer.apple.com/documentation/macos-release-notes)
 [![macOS](https://img.shields.io/badge/macOS-Ventura-brightgreen.svg?logo=apple)](https://developer.apple.com/documentation/macos-release-notes)
 [![macOS](https://img.shields.io/badge/macOS-Sonoma-brightgreen.svg?logo=apple)](https://developer.apple.com/documentation/macos-release-notes)
 [![macOS](https://img.shields.io/badge/macOS-Sequoia-brightgreen.svg?logo=apple)](https://developer.apple.com/documentation/macos-release-notes)
-[![OpenCore](https://img.shields.io/badge/OpenCore-1.0.0-blue.svg)](https://github.com/acidanthera/OpenCorePkg)
+[![OpenCore](https://img.shields.io/badge/OpenCore-1.0.1-blue.svg)](https://github.com/acidanthera/OpenCorePkg)
 [![License](https://img.shields.io/badge/license-MIT-purple.svg)](/LICENSE)
 
 <p align="center">
    <strong>Status: Maintained</strong>
    <br />
-   <strong>Version: </strong>1.4.0
+   <strong>Version: </strong>1.4.1 | Personal Edition
    <br />
-   <a href="https://github.com/valnoxy/t480-oc/releases"><strong>Download now »</strong></a>
+   <strong>No Download / Release for this version
    <br />
-   <a href="https://github.com/valnoxy/t480-oc/issues">Report Bug</a>
-   ·
-   <a href="https://github.com/valnoxy/t480-oc/blob/main/CHANGELOG.md">View Changelog</a>
-   ·
-   <a href="https://www.youtube.com/watch?v=thYDWyJuUq4">YouTube Video</a>
+   <strong>You can download EFI as zip directly
+   <br />
   </p>
 </p>
 </br>
@@ -28,9 +25,9 @@
 ## ⚠️ Disclaimer
 This guide is only for the Lenovo ThinkPad T480. I am NOT responsible for any harm you cause to your device. This guide is provided "as-is" and all steps taken are done at your own risk.
 
-### This EFI is tune for personal use. I am NOT TAKING ANY RESPONSIBLE for anything harm to your device. and this branch is EXPERIMENTAL for macos sequoia, not for daily driver.
-
 > The ACPI patches and the style of this README are from [EETagent](https://github.com/EETagent/T480-OpenCore-Hackintosh).
+
+> Thanks valnoxy for his works on hackintosh EFI [t480-oc](https://github.com/valnoxy/t480-oc).
 
 > [!IMPORTANT]
 > Intel WiFi with Airportitlwm currently doesn't work under macOS Sequoia! Use the HeliPort version instead.
@@ -55,7 +52,6 @@ This repo includes multiple EFI configuations for different macOS Versions.
 
 | EFI               | Description                                                               | Type      |
 | ----------------- | ------------------------------------------------------------------------- | --------- |
-| `EFI`             | Supports macOS Monterey, Ventura, Sonoma & Sequoia (using Airportitlwm)   | `Stable`  |
 | `EFI - HeliPort`  | Supports every macOS Version except Ventura, Require HeliPort app         | `Stable`  |
 
 <a href="https://github.com/OpenIntelWireless/HeliPort/releases"><strong>
@@ -72,10 +68,12 @@ Check the model of your WiFi & Bluetooth card. Intel cards should be compatible 
 | --------- | ------------------------------------ |
 | CPU       | Intel Core i5-8350U                  |
 | GPU       | Intel UHD Graphics 620               |
-| SSD       | Intel SSDPEKKF256G8L M.2 NVMe SSD    |
-| Memory    | 16GB DDR4 2400Mhz                     |
+| SSD       | WD SN520 512GB NVMe SSD   	   |
+| Memory    | 20GB DDR4 2400Mhz                    |
 | Camera    | 720p Camera                          |
-| WiFi & BT | Dell DW1830 (BCM43602)               |
+| WiFi & BT | Intel® Dual Band Wireless-AC 8265*   |
+
+*i'm ordering bcm94360cs2, when it's arrived i'll do guide for how to replace it for t480
 
 </details>  
 
@@ -89,7 +87,7 @@ Check the model of your WiFi & Bluetooth card. Intel cards should be compatible 
 <summary><strong>✅ What's working</strong></summary>
 </br>
  
-- [x] Intel WiFi & Bluetooth (itlwm + heliport for now)
+- [x] Intel WiFi & Bluetooth (Only Heliport Support)
 - [x] Audio (Audio Jack & Speaker)
 - [X] Brightness / Volume Control
 - [X] Battery Information
@@ -102,6 +100,9 @@ Check the model of your WiFi & Bluetooth card. Intel cards should be compatible 
 - [X] Automatic OS updates
 - [X] SIP / FireVault 2
 - [X] USB-C
+- [X] DRM (Partially)
+- Safari (Partially), Apple Music, and Apple TV seem to works with unfairgva=4 (Safari DRM only works on content that support HLS encryption)
+- [X] Thunderbolt 3 (Cold Boot only for now)
 
 </details>
 
@@ -109,18 +110,12 @@ Check the model of your WiFi & Bluetooth card. Intel cards should be compatible 
 <summary><strong>⚠️ What's not working</strong></summary>
 </br>
 
-- [ ] Safari DRM 
-  - Use Chromium powered Browser or Firefox to watch Amazon Prime Video, Netflix, Disney+ and others.
-- [ ] AirDrop & Continuity 
-  - Only devices with Intel WiFi affected
 - [ ] Fingerprint Reader 
   - Disabled with NoTouchID kext
-- [ ] Thunderbolt 3
-- [ ] Sidecar Wireless
-- [ ] Apple Watch Unlock
 - [ ] Dualbooting Windows / Linux (with OpenCore) 
-  - Theoretically this works, but the ACPI patches can make the operating system unstable.
-
+  - BSOD in windows, not recommend to do dualboot with this EFI / Use rEFInd for dual boot instead
+- [ ] Iphone mirroring (15.0+)
+  - Require macbook with T2 chips 
 </details>
 
 <details>  
@@ -130,6 +125,8 @@ Check the model of your WiFi & Bluetooth card. Intel cards should be compatible 
 - [ ] WWAN
 - [ ] Handoff / Universal Clipboard
 - [ ] Sidecar (Cable) / AirPlay to Mac
+- [ ] AirDrop & Continuity / Apple Watch Unlock / Sidecar Wireless
+  - Only support for BCM Card / keep it untested as i'm ordering new one
 </details>
 
 &nbsp;
