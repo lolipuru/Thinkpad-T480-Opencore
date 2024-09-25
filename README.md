@@ -129,6 +129,20 @@ Check the model of your WiFi & Bluetooth card. Intel cards should be compatible 
   - Only support for BCM Card / keep it untested as i'm ordering new one
 </details>
 
+<details>  
+<summary><strong>🔧 Experimental</strong></summary>
+</br>
+
+- [ ] Apple GuC Firmware (igfxfw=2)
+  - It does booted on T480, but cpu frequent stuck at very low frequency
+- [ ] rps-control (igfxrpsc=1)
+  - works good, but need more time to test
+- [ ] alcid
+  - sound broken after sleep, not sure if this is necessary
+- [ ] bios unlock stuff (CFG Unlock / DVMT Unlock)
+  - i have no plan to do this until i got hand of real m1 macbook (but if you do, highly recommend for cfg / dvmt stuff)  
+</details>
+
 &nbsp;
 
 ## ⭐️ Feedback
