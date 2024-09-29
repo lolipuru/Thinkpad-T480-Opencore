@@ -137,8 +137,6 @@ Check the model of your WiFi & Bluetooth card. Intel cards should be compatible 
   - It does booted on T480, but cpu frequent stuck at very low frequency
 - [ ] rps-control (igfxrpsc=1)
   - works good, but need more time to test
-- [ ] alcid
-  - sound broken after sleep, not sure if this is necessary
 - [ ] bios unlock stuff (CFG Unlock / DVMT Unlock)
   - i have no plan to do this until i got hand of real m1 macbook (but if you do, highly recommend for cfg / dvmt stuff)  
 </details>
