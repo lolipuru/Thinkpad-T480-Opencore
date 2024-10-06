@@ -67,7 +67,7 @@
 				</dict>
 			</dict>
 			<key>model</key>
-			<string>MacBookPro16,3</string>
+			<string>MacBookAir9,1</string>
 		</dict>
 		<key>_SB.PCI0.XHC</key>
 		<dict>
@@ -222,7 +222,7 @@
 				</dict>
 			</dict>
 			<key>model</key>
-			<string>MacBookPro16,3</string>
+			<string>MacBookAir9,1</string>
 		</dict>
 	</dict>
 	<key>OSBundleRequired</key>
