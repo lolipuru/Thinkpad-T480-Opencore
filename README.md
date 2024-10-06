@@ -30,7 +30,7 @@ This guide is only for the Lenovo ThinkPad T480. I am NOT responsible for any ha
 > Thanks valnoxy for his works on hackintosh EFI [t480-oc](https://github.com/valnoxy/t480-oc).
 
 > [!IMPORTANT]
-> Intel WiFi with Airportitlwm currently doesn't work under macOS Sequoia! Use the HeliPort version instead.
+> For intel support, use intel branch
 
 > [!NOTE]
 > The instructions for installing macOS have been moved [to the wiki](https://github.com/valnoxy/t480-oc/wiki).
@@ -52,10 +52,8 @@ This repo includes multiple EFI configuations for different macOS Versions.
 
 | EFI               | Description                                                               | Type      |
 | ----------------- | ------------------------------------------------------------------------- | --------- |
-| `EFI - HeliPort`  | Supports every macOS Version except Ventura, Require HeliPort app         | `Stable`  |
+| `EFI`             | Supports every macOS Version (Test from Ventura up to Sequoia 15.1)       | `Stable`  |
 
-<a href="https://github.com/OpenIntelWireless/HeliPort/releases"><strong>
-Download HeliPort app »</strong></a>
 
 <details>
 <summary><strong>💻 My Hardware</strong></summary>
@@ -68,12 +66,12 @@ Check the model of your WiFi & Bluetooth card. Intel cards should be compatible 
 | --------- | ------------------------------------ |
 | CPU       | Intel Core i5-8350U                  |
 | GPU       | Intel UHD Graphics 620               |
-| SSD       | WD SN520 512GB NVMe SSD   	   |
+| SSD       | WD SN520 512GB NVMe SSD   	         |
 | Memory    | 20GB DDR4 2400Mhz                    |
 | Camera    | 720p Camera                          |
-| WiFi & BT | Intel® Dual Band Wireless-AC 8265*   |
+| WiFi & BT | Broadcom BCM94360CS2*                |
 
-*i'm ordering bcm94360cs2, when it's arrived i'll do guide for how to replace it for t480
+*highly recommend to use adapter with extension cable
 
 </details>  
 
@@ -103,7 +101,8 @@ Check the model of your WiFi & Bluetooth card. Intel cards should be compatible 
 - [X] DRM (Partially)
 - Safari (Partially), Apple Music, and Apple TV seem to works with unfairgva=4 (Safari DRM only works on content that support HLS encryption)
 - [X] Thunderbolt 3 (Cold Boot only for now)
-
+- [X] AirDrop & Continuity / AirPlay to Mac  / Universal Clipboard / Handoff
+- should works as long you use broadcom native card
 </details>
 
 <details>  
@@ -116,6 +115,8 @@ Check the model of your WiFi & Bluetooth card. Intel cards should be compatible 
   - BSOD in windows, not recommend to do dualboot with this EFI / Use rEFInd for dual boot instead
 - [ ] Iphone mirroring (15.0+)
   - Require macbook with T2 chips 
+- [ ] Apple GuC Firmware (igfxfw=2)
+  - It does booted on T480, but cpu frequent stuck at very low frequency
 </details>
 
 <details>  
@@ -123,18 +124,14 @@ Check the model of your WiFi & Bluetooth card. Intel cards should be compatible 
 </br>
 
 - [ ] WWAN
-- [ ] Handoff / Universal Clipboard
-- [ ] Sidecar (Cable) / AirPlay to Mac
-- [ ] AirDrop & Continuity / Apple Watch Unlock / Sidecar Wireless
-  - Only support for BCM Card / keep it untested as i'm ordering new one
+- [ ] Sidecar (Cable) / Apple Watch Unlock / Sidecar Wireless 
+- AW unlock i can't test since my AW series 6 is currently broken...
 </details>
 
 <details>  
 <summary><strong>🔧 Experimental</strong></summary>
 </br>
 
-- [ ] Apple GuC Firmware (igfxfw=2)
-  - It does booted on T480, but cpu frequent stuck at very low frequency
 - [ ] rps-control (igfxrpsc=1)
   - works good, but need more time to test
 - [ ] bios unlock stuff (CFG Unlock / DVMT Unlock)
