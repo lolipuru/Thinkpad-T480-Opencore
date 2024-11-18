@@ -16,11 +16,67 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Thunderbolt Hotplug Patch</string>
+				<string>Thunderbolt 3: depends on / patches/ OpenCore Patches/ Thunderbolt3.plist</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
-				<string>SSDT-TB3.aml</string>
+				<string>SSDT-TB-DSB0.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Partition and continuation of Thunderbolt 3 patch.</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-TB-DSB1.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Partition and continuation of Thunderbolt 3 patch.</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-TB-DSB2.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>USB 3.1</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-TB-DSB2-XHC2.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Partition and continuation of Thunderbolt 3 patch.</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-TB-DSB3.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Partition and continuation of Thunderbolt 3 patch.</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-TB-DSB4.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Partition and continuation of Thunderbolt 3 patch.</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-TB-DSB5.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Partition and continuation of Thunderbolt 3 patch.</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-TB-DSB6.aml</string>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -310,29 +366,155 @@
 				<key>BaseSkip</key>
 				<integer>0</integer>
 				<key>Comment</key>
-				<string>TB3:_INI with XINI for RP09</string>
+				<string>Thunderbolt 3: RP09:_PS0 to RP09:XPS0</string>
 				<key>Count</key>
 				<integer>1</integer>
 				<key>Enabled</key>
 				<true/>
 				<key>Find</key>
-				<data>X0lOSQ==</data>
+				<data>
+				X1BTMA==
+				</data>
 				<key>Limit</key>
 				<integer>0</integer>
 				<key>Mask</key>
-				<data></data>
+				<data>
+				</data>
 				<key>OemTableId</key>
-				<data></data>
+				<data>
+				UlZQN1J0ZDM=
+				</data>
 				<key>Replace</key>
-				<data>WElOSQ==</data>
+				<data>
+				WFBTMA==
+				</data>
 				<key>ReplaceMask</key>
-				<data></data>
+				<data>
+				</data>
+				<key>Skip</key>
+				<integer>0</integer>
+				<key>TableLength</key>
+				<integer>7453</integer>
+				<key>TableSignature</key>
+				<data>
+				U1NEVA==
+				</data>
+			</dict>
+			<dict>
+				<key>Base</key>
+				<string></string>
+				<key>BaseSkip</key>
+				<integer>0</integer>
+				<key>Comment</key>
+				<string>Thunderbolt 3:  RP09:_PS3 to RP09:XPS3</string>
+				<key>Count</key>
+				<integer>1</integer>
+				<key>Enabled</key>
+				<true/>
+				<key>Find</key>
+				<data>
+				X1BTMw==
+				</data>
+				<key>Limit</key>
+				<integer>0</integer>
+				<key>Mask</key>
+				<data>
+				</data>
+				<key>OemTableId</key>
+				<data>
+				UlZQN1J0ZDM=
+				</data>
+				<key>Replace</key>
+				<data>
+				WFBTMw==
+				</data>
+				<key>ReplaceMask</key>
+				<data>
+				</data>
+				<key>Skip</key>
+				<integer>0</integer>
+				<key>TableLength</key>
+				<integer>7453</integer>
+				<key>TableSignature</key>
+				<data>
+				U1NEVA==
+				</data>
+			</dict>
+			<dict>
+				<key>Base</key>
+				<string></string>
+				<key>BaseSkip</key>
+				<integer>0</integer>
+				<key>Comment</key>
+				<string>Thunderbolt 3: RP09._INI to RP09.XINI for ICM disable</string>
+				<key>Count</key>
+				<integer>1</integer>
+				<key>Enabled</key>
+				<true/>
+				<key>Find</key>
+				<data>
+				X0lOSQ==
+				</data>
+				<key>Limit</key>
+				<integer>0</integer>
+				<key>Mask</key>
+				<data>
+				</data>
+				<key>OemTableId</key>
+				<data>
+				</data>
+				<key>Replace</key>
+				<data>
+				WElOSQ==
+				</data>
+				<key>ReplaceMask</key>
+				<data>
+				</data>
 				<key>Skip</key>
 				<integer>11</integer>
 				<key>TableLength</key>
 				<integer>0</integer>
 				<key>TableSignature</key>
-				<data></data>
+				<data>
+				</data>
+			</dict>
+			<dict>
+				<key>Base</key>
+				<string></string>
+				<key>BaseSkip</key>
+				<integer>0</integer>
+				<key>Comment</key>
+				<string>Thunderbolt 3: NTFY to XTFY</string>
+				<key>Count</key>
+				<integer>0</integer>
+				<key>Enabled</key>
+				<true/>
+				<key>Find</key>
+				<data>
+				FENHTlRGWQk=
+				</data>
+				<key>Limit</key>
+				<integer>0</integer>
+				<key>Mask</key>
+				<data>
+				</data>
+				<key>OemTableId</key>
+				<data>
+				</data>
+				<key>Replace</key>
+				<data>
+				FENHWFRGWQk=
+				</data>
+				<key>ReplaceMask</key>
+				<data>
+				</data>
+				<key>Skip</key>
+				<integer>0</integer>
+				<key>TableLength</key>
+				<integer>0</integer>
+				<key>TableSignature</key>
+				<data>
+				</data>
 			</dict>
 			<dict>
 				<key>Base</key>
