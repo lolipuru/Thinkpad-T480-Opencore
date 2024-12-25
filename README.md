@@ -12,7 +12,7 @@
 <p align="center">
    <strong>Status: Maintained</strong>
    <br />
-   <strong>Version: </strong>1.4.1 | Personal Edition
+   <strong>Version: </strong>1.4.2 | Personal Edition
    <br />
    <strong>No Download / Release for this version
    <br />
@@ -52,7 +52,7 @@ This repo includes multiple EFI configuations for different macOS Versions.
 
 | EFI               | Description                                                               | Type      |
 | ----------------- | ------------------------------------------------------------------------- | --------- |
-| `EFI - HeliPort`  | Supports every macOS Version except Ventura, Require HeliPort app         | `Stable`  |
+| `EFI`             | Supports macOS Sequoia only (for now)                                     | `Beta`    |
 
 <a href="https://github.com/OpenIntelWireless/HeliPort/releases"><strong>
 Download HeliPort app »</strong></a>
@@ -68,12 +68,11 @@ Check the model of your WiFi & Bluetooth card. Intel cards should be compatible 
 | --------- | ------------------------------------ |
 | CPU       | Intel Core i5-8350U                  |
 | GPU       | Intel UHD Graphics 620               |
-| SSD       | WD SN520 512GB NVMe SSD   	   |
-| Memory    | 20GB DDR4 2400Mhz                    |
+| SSD       | WD SN520 512GB NVMe SSD (WWAN slot)  |
+| SSD       | Samsung PM981a (main m.2 slot)       |
+| Memory    | 32GB DDR4 2400Mhz                    |
 | Camera    | 720p Camera                          |
-| WiFi & BT | Intel® Dual Band Wireless-AC 8265*   |
-
-*i'm ordering bcm94360cs2, when it's arrived i'll do guide for how to replace it for t480
+| WiFi & BT | Intel® Dual Band Wireless-AC 8265    |
 
 </details>  
 
@@ -126,7 +125,7 @@ Check the model of your WiFi & Bluetooth card. Intel cards should be compatible 
 - [ ] Handoff / Universal Clipboard
 - [ ] Sidecar (Cable) / AirPlay to Mac
 - [ ] AirDrop & Continuity / Apple Watch Unlock / Sidecar Wireless
-  - Only support for BCM Card / keep it untested as i'm ordering new one
+  - Only support for BCM Card
 </details>
 
 <details>  
@@ -138,7 +137,7 @@ Check the model of your WiFi & Bluetooth card. Intel cards should be compatible 
 - [ ] rps-control (igfxrpsc=1)
   - works good, but need more time to test
 - [ ] bios unlock stuff (CFG Unlock / DVMT Unlock)
-  - i have no plan to do this until i got hand of real m1 macbook (but if you do, highly recommend for cfg / dvmt stuff)  
+  - well, i did unlocked bios now...
 </details>
 
 &nbsp;
@@ -189,6 +188,179 @@ after that, be sure to add amfi=0x80 in boot-args (for allowing OCLP root patch)
 
 ![ภาพถ่ายหน้าจอ 2024-12-26 เวลา 2 41 25 AM](https://github.com/user-attachments/assets/8b7edcd6-3416-4b81-8f3f-192605804a65)
 
+</details>
+
+<details>  
+<summary><strong>Details on headphone jack sleep</strong></summary>
+</br>
+
+if you're using other t480 EFI, you will notice that audio is distroted after sleep
+
+this [post](https://github.com/tylernguyen/x1c6-hackintosh/issues/75#issuecomment-705889447) give a very details on why audio become distorted after sleep
+
+so how do i fix it without using hdaverbs, the answer is quite simple
+
+the EAPD node on x1c6 and t480 are "nearly identical", here's codec dump on t480
+
+```
+Node 0x14 [Pin Complex] wcaps 0x40058d: Stereo Amp-Out
+  Control: name="Speaker Playback Switch", index=0, device=0
+    ControlAmp: chs=3, dir=Out, idx=0, ofs=0
+  Amp-Out caps: ofs=0x00, nsteps=0x00, stepsize=0x00, mute=1
+  Amp-Out vals:  [0x00 0x00]
+  Pincap 0x00010014: OUT EAPD Detect
+  EAPD 0x2: EAPD
+  Pin Default 0x90170110: [Fixed] Speaker at Int N/A
+    Conn = Analog, Color = Unknown
+    DefAssociation = 0x1, Sequence = 0x0
+    Misc = NO_PRESENCE
+  Pin-ctls: 0x40: OUT
+  Unsolicited: tag=00, enabled=0
+  Power states:  D0 D1 D2 D3 EPSS
+  Power: setting=D0, actual=D0
+  Connection: 1
+     0x02
+
+Node 0x21 [Pin Complex] wcaps 0x40058d: Stereo Amp-Out
+  Control: name="Headphone Playback Switch", index=0, device=0
+    ControlAmp: chs=3, dir=Out, idx=0, ofs=0
+  Amp-Out caps: ofs=0x00, nsteps=0x00, stepsize=0x00, mute=1
+  Amp-Out vals:  [0x80 0x80]
+  Pincap 0x0001001c: OUT HP EAPD Detect
+  EAPD 0x2: EAPD
+  Pin Default 0x0421101f: [Jack] HP Out at Ext Right
+    Conn = 1/8, Color = Black
+    DefAssociation = 0x1, Sequence = 0xf
+  Pin-ctls: 0xc0: OUT HP
+  Unsolicited: tag=01, enabled=1
+  Power states:  D0 D1 D2 D3 EPSS
+  Power: setting=D0, actual=D0
+  Connection: 2
+     0x02 0x03*
+
+Node 0x19 [Pin Complex] wcaps 0x40048b: Stereo Amp-In
+  Control: name="Mic Boost Volume", index=0, device=0
+    ControlAmp: chs=3, dir=In, idx=0, ofs=0
+  Amp-In caps: ofs=0x00, nsteps=0x03, stepsize=0x27, mute=0
+  Amp-In vals:  [0x00 0x00]
+  Pincap 0x00003724: IN Detect
+    Vref caps: HIZ 50 GRD 80 100
+  Pin Default 0x04a11040: [Jack] Mic at Ext Right
+    Conn = 1/8, Color = Black
+    DefAssociation = 0x4, Sequence = 0x0
+  Pin-ctls: 0x24: IN VREF_80
+  Unsolicited: tag=02, enabled=1
+  Power states:  D0 D1 D2 D3 EPSS
+  Power: setting=D0, actual=D0
+```
+
+and here's codec dump on x1c6
+
+```
+Node 0x14 [Pin Complex] wcaps 0x40058d: Stereo Amp-Out
+  Control: name="Speaker Playback Switch", index=0, device=0
+    ControlAmp: chs=3, dir=Out, idx=0, ofs=0
+  Amp-Out caps: ofs=0x00, nsteps=0x00, stepsize=0x00, mute=1
+  Amp-Out vals:  [0x00 0x00]
+  Pincap 0x00010014: OUT EAPD Detect
+  EAPD 0x2: EAPD
+  Pin Default 0x90170110: [Fixed] Speaker at Int N/A
+    Conn = Analog, Color = Unknown
+    DefAssociation = 0x1, Sequence = 0x0
+    Misc = NO_PRESENCE
+  Pin-ctls: 0x40: OUT
+  Unsolicited: tag=00, enabled=0
+  Power states:  D0 D1 D2 D3 EPSS
+  Power: setting=D0, actual=D0
+  Connection: 1
+     0x02
+
+Node 0x21 [Pin Complex] wcaps 0x40058d: Stereo Amp-Out
+  Control: name="Headphone Playback Switch", index=0, device=0
+    ControlAmp: chs=3, dir=Out, idx=0, ofs=0
+  Amp-Out caps: ofs=0x00, nsteps=0x00, stepsize=0x00, mute=1
+  Amp-Out vals:  [0x80 0x80]
+  Pincap 0x0001001c: OUT HP EAPD Detect
+  EAPD 0x2: EAPD
+  Pin Default 0x04211020: [Jack] HP Out at Ext Right
+    Conn = 1/8, Color = Black
+    DefAssociation = 0x2, Sequence = 0x0
+  Pin-ctls: 0xc0: OUT HP
+  Unsolicited: tag=01, enabled=1
+  Power states:  D0 D1 D2 D3 EPSS
+  Power: setting=D0, actual=D0
+  Connection: 2
+     0x02* 0x03
+
+Node 0x19 [Pin Complex] wcaps 0x40048b: Stereo Amp-In
+  Control: name="Mic Boost Volume", index=0, device=0
+    ControlAmp: chs=3, dir=In, idx=0, ofs=0
+  Amp-In caps: ofs=0x00, nsteps=0x03, stepsize=0x27, mute=0
+  Amp-In vals:  [0x00 0x00]
+  Pincap 0x00003724: IN Detect
+    Vref caps: HIZ 50 GRD 80 100
+  Pin Default 0x04a11040: [Jack] Mic at Ext Right
+    Conn = 1/8, Color = Black
+    DefAssociation = 0x4, Sequence = 0x0
+  Pin-ctls: 0x24: IN VREF_80
+  Unsolicited: tag=02, enabled=1
+  Power states:  D0 D1 D2 D3 EPSS
+  Power: setting=D0, actual=D0
+```
+
+that's mean besides connection on pin 0x21, the codec are pretty much identical to each other that's mean, if you look on layout-id 86 (that default on t480), it return
+
+ConfigData
+
+```
+01271C10 01271D01 01271EA0 01271F90 01971C20 01971D30 01971E81 01971F01 01471C30 01471D61 01471E10 01471F90 01470C02 02171C40 02171D70 02171E21 02171F01 02170C02
+```
+
+WakeConfigData
+
+```
+01470C02
+```
+
+and layout 11 also return
+
+ConfigData
+
+```
+01271C20 01271D00 01271EA6 01271F90 01971C30 01971D10 01971E81 01971F00 01471C50 01471D00 01471E17 01471F90 01470C02 02171C60 02171D10 02171E21 02171F00
+```
+WakeConfigData
+
+```
+01470C02
+```
+
+the fix is, add proper EPAD signal to both ConfigData and WakeConfigData, so layout 86 will return
+
+```
+01271C10 01271D01 01271EA0 01271F90 01971C20 01971D30 01971E81 01971F01 01471C30 01471D61 01471E10 01471F90 01470C02 02171C40 02171D70 02171E21 02171F01 02170C02
+```
+
+WakeConfigData
+
+```
+01470C02 02170C02 01970725
+```
+
+and layout 11 also return
+
+ConfigData
+
+```
+01271C20 01271D00 01271EA6 01271F90 01971C30 01971D10 01971E81 01971F00 01471C50 01471D00 01471E17 01471F90 02171C60 02171D10 02171E21 02171F00 01470C02 02170C02
+```
+WakeConfigData
+
+```
+01470C02 02170C02 01970725
+```
+
+this will proper fix a distroted audio (without using external kexts or hdaverbs), only minor stuff is audio jack sometimes won't connect, but it isn't happened often, so i'm quite don't mind about it
 </details>
 
 &nbsp;
