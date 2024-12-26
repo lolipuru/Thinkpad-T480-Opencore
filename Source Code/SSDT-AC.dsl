@@ -6,22 +6,25 @@ DefinitionBlock ("", "SSDT", 2, "T480", "AC", 0x00001000)
 
     Scope (\_SB.PCI0.LPCB.EC.AC)
     {
-        Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
+        If (_OSI ("Darwin"))
         {
-            If ((\OSDW () || \LWCP))
+            Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
             {
+                If (\LWCP)
+                {
+                    Return (Package (0x02)
+                    {
+                        0x17, 
+                        0x04
+                    })
+                }
+
                 Return (Package (0x02)
                 {
                     0x17, 
-                    0x04
+                    0x03
                 })
             }
-
-            Return (Package (0x02)
-            {
-                0x17, 
-                0x03
-            })
         }
     }
 }
