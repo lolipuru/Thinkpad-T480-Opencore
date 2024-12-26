@@ -924,6 +924,11 @@
 				<data>AQAAAA==</data>
 				<key>AAPL,ig-platform-id</key>
 				<data>AADAhw==</data>
+				<key>AAPL00,override-no-connect</key>
+				<data>AP///////wANrskUAAAAAAgaAQSQHxF4Aihll1lUjiceUFQAAAABAQEBAQEBAQEBAQEB
+				AQEBtDuASnE4NEBQPGgANa0QAAAYAAAA/gBOMTQwSENBLUVBQgogAAAA/gBDTU4KICAg
+				ICAgICAgAAAA/gBOMTQwSENBLUVBQgogAEM=
+				</data>
 				<key>AAPL,slot-name</key>
 				<string>Internal@0,2,0</string>
 				<key>backlight-smoother-interval</key>
@@ -941,8 +946,6 @@
 				<key>enable-lspcon-support</key>
 				<data>AQAAAA==</data>
 				<key>enable-max-pixel-clock-override</key>
-				<data>AQAAAA==</data>
-				<key>force-online</key>
 				<data>AQAAAA==</data>
 				<key>framebuffer-con0-alldata</key>
 				<data>AAAIAAIAAACYAAAA</data>
