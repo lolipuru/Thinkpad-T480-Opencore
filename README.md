@@ -176,15 +176,13 @@ it should be like this
 ![image](https://github.com/user-attachments/assets/2a7b1d5b-29a7-4740-aaba-9ce1eb661f3f)
 
 
-after that, be sure to add amfi=0x80 in boot-args (for allowing OCLP root patch), then press save
+press save and reboot (no need for kext setup since it's already presents in the efi)
 
-3. download IO80211FamilyLegacy IOSkywalkFamily kext from [OCLP](https://github.com/dortania/OpenCore-Legacy-Patcher/tree/main/payloads/Kexts/Wifi) (currently, this repo already included and already setup, but you need to download once i drop it)
-
-4. if you done the setup correctly, you should be able to install the OCLP root patch
+3. if you done the setup correctly, you should be able to install the OCLP root patch
 
 ![ภาพถ่ายหน้าจอ 2024-12-26 เวลา 2 36 01 AM](https://github.com/user-attachments/assets/6a44dd01-c7cf-4db5-8db7-e54683529687)
 
-5. install the patch, then you can remove the spoof id (or add the # instead) and intel wifi should works without heliport
+4. install the patch, then you can remove the spoof id (or add the # instead) and intel wifi should works without heliport
 
 ![ภาพถ่ายหน้าจอ 2024-12-26 เวลา 2 41 25 AM](https://github.com/user-attachments/assets/8b7edcd6-3416-4b81-8f3f-192605804a65)
 
