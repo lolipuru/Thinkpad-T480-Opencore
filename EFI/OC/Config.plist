@@ -104,6 +104,14 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
+				<string>VoodooRMI Tweaking</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-VRMI.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
 				<string>SSDT-PNLF</string>
 				<key>Path</key>
 				<string>SSDT-PNLF.aml</string>
