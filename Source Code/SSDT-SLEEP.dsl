@@ -153,19 +153,18 @@ DefinitionBlock ("", "SSDT", 2, "T480", "SLEEP", 0x00001000)
             }
         }
 
-        If (CondRefOf (\ZWAK))
+        Method (_WAK, 1, Serialized)  // _WAK: Wake
         {
-            Method (_WAK, 1, Serialized)  // _WAK: Wake
+            If (_OSI ("Darwin"))
             {
-                Debug = Concatenate ("SLEEP:_WAK - called Arg0: ", Arg0)
-                If ((OSDW () && (Arg0 < 0x05)))
+                If (Arg0 < 0x05)
                 {
                     SWAK ()
                 }
-
-                Local0 = ZWAK (Arg0)
-                Return (Local0)
             }
+
+            Local0 = ZWAK (Arg0)
+            Return (Local0)
         }
 
         Method (GPRW, 2, Serialized)
