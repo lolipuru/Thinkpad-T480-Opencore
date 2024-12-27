@@ -26,7 +26,7 @@ DefinitionBlock ("", "SSDT", 2, "T480", "SLEEP", 0x00001000)
 
     Name (DIEN, Zero)
     Name (INIB, One)
-    If (OSDW ())
+    If (_OSI ("Darwin"))
     {
         Debug = "SLEEP: Enabling comprehensive S3-patching..."
         STY0 = Zero
