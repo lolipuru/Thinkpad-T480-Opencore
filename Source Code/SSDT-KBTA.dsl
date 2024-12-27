@@ -10,6 +10,8 @@ DefinitionBlock ("", "SSDT", 2, "VNXY", "_KBD", 0x00000000)
     External (\_SB.PCI0.LPCB.EC.HKEY.MMTS, MethodObj)
     External (\_SB.PCI0.LPCB.EC.HKEY.MMTG, MethodObj)
     External (\_SB.PCI0.LPCB.EC.XQ6A, MethodObj)
+    External (\_SB.PCI0.LPCB.EC.XQ14, MethodObj)
+    External (\_SB.PCI0.LPCB.EC.XQ15, MethodObj)
     External (\_SB.PCI0.LPCB.EC.XQ16, MethodObj)
     External (\_SB.PCI0.LPCB.EC.XQ64, MethodObj)
     External (\_SB.PCI0.LPCB.EC.XQ66, MethodObj)
@@ -24,18 +26,6 @@ DefinitionBlock ("", "SSDT", 2, "VNXY", "_KBD", 0x00000000)
     {
         Name (LED1, Zero)
         Name (LED2, Zero)
-
-        Method (_Q14, 0, NotSerialized)  // _Qxx: EC Query
-        {
-            Notify (\_SB.PCI0.LPCB.KBD, 0x0206)
-            Notify (\_SB.PCI0.LPCB.KBD, 0x0286)
-        }
-
-        Method (_Q15, 0, NotSerialized)  // _Qxx: EC Query
-        {
-            Notify (\_SB.PCI0.LPCB.KBD, 0x0205)
-            Notify (\_SB.PCI0.LPCB.KBD, 0x0285)
-        }
 
         // _Q6A - (Fn+F4) microphone mute key.
         Method(_Q6A, 0, NotSerialized)
@@ -66,6 +56,36 @@ DefinitionBlock ("", "SSDT", 2, "VNXY", "_KBD", 0x00000000)
             {
                 // Call original _Q6A method.
                 \_SB.PCI0.LPCB.EC.XQ6A()
+            }
+        }
+
+        // _Q14 - (Fn+F5) Brightness Increase key
+        Method (_Q14, 0, NotSerialized)
+        {
+            If (_OSI ("Darwin"))
+            {
+                Notify (\_SB.PCI0.LPCB.KBD, 0x0206)
+                Notify (\_SB.PCI0.LPCB.KBD, 0x0286)
+            }
+            Else
+            {
+                // Call original _Q14 method.
+                \_SB.PCI0.LPCB.EC.XQ14()
+            }
+        }
+
+        // _Q15 - (Fn+F6) Brightness Decrease key
+        Method (_Q15, 0, NotSerialized)
+        {
+            If (_OSI ("Darwin"))
+            {
+                Notify (\_SB.PCI0.LPCB.KBD, 0x0205)
+                Notify (\_SB.PCI0.LPCB.KBD, 0x0285)
+            }
+            Else
+            {
+                // Call original _Q15 method.
+                \_SB.PCI0.LPCB.EC.XQ15()
             }
         }
 
