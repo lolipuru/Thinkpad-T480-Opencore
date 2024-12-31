@@ -2530,6 +2530,33 @@ DefinitionBlock ("", "SSDT", 2, "tyler", "_TBDSB0", 0x00002000)
                         {
                             Local0 = Package ()
                                 {
+                                    "AAPL,slot-name", 
+                                    Buffer (0x0C)
+                                    {
+                                        "Thunderbolt"
+                                    },
+
+                                    "name",
+                                    Buffer (0x24)
+                                    {
+                                        "Alpine Ridge Thunderbolt Controller"
+                                    },
+
+                                     "model",
+                                     Buffer (0x3A)
+                                     {
+                                         "Intel JHL6240 Alpine Ridge Thunderbolt 3 NHI0 (Low Power)"
+                                     },
+
+                                     "device_type", 
+                                     Buffer (0x12)
+                                     {
+                                        "System Peripheral"
+                                     },
+
+                                    "PCI-Thunderbolt", 
+                                    One, //hopefully it won't break any hotplug patch
+                                    
                                     // Thinkpad X1 original FW, switched port 5, loading
                                     "ThunderboltDROM",
                                     Buffer ()
