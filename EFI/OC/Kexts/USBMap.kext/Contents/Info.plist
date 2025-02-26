@@ -7,7 +7,7 @@
 	<key>CFBundleGetInfoString</key>
 	<string>v1.1</string>
 	<key>CFBundleIdentifier</key>
-	<string>dev.valnoxy.USBMap</string>
+	<string>com.dhinakg.USBToolBox.map</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -22,7 +22,7 @@
 	<string>1.1</string>
 	<key>IOKitPersonalities</key>
 	<dict>
-		<key>_SB.PCI0.RP09.UPSB.DSB2.XHC2</key>
+		<key>_SB.PCI0.RP09.PXSX.TBDU.XHC</key>
 		<dict>
 			<key>CFBundleIdentifier</key>
 			<string>com.apple.driver.AppleUSBHostMergeProperties</string>
@@ -67,7 +67,7 @@
 				</dict>
 			</dict>
 			<key>model</key>
-			<string>MacBookAir9,1</string>
+			<string>MacBookPro15,2</string>
 		</dict>
 		<key>_SB.PCI0.XHC</key>
 		<dict>
@@ -138,51 +138,6 @@
 						CAAAAA==
 						</data>
 					</dict>
-					<key>HS06</key>
-					<dict>
-						<key>UsbConnector</key>
-						<integer>255</integer>
-						<key>port</key>
-						<data>
-						BgAAAA==
-						</data>
-					</dict>
-					<key>HS07</key>
-					<dict>
-						<key>UsbConnector</key>
-						<integer>255</integer>
-						<key>port</key>
-						<data>
-						BwAAAA==
-						</data>
-					</dict>
-					<key>HS08</key>
-					<dict>
-						<key>UsbConnector</key>
-						<integer>255</integer>
-						<key>port</key>
-						<data>
-						CAAAAA==
-						</data>
-					</dict>
-					<key>HS09</key>
-					<dict>
-						<key>UsbConnector</key>
-						<integer>255</integer>
-						<key>port</key>
-						<data>
-						CQAAAA==
-						</data>
-					</dict>
-					<key>HS10</key>
-					<dict>
-						<key>UsbConnector</key>
-						<integer>255</integer>
-						<key>port</key>
-						<data>
-						CgAAAA==
-						</data>
-					</dict>
 					<key>SS01</key>
 					<dict>
 						<key>UsbConnector</key>
@@ -222,7 +177,7 @@
 				</dict>
 			</dict>
 			<key>model</key>
-			<string>MacBookAir9,1</string>
+			<string>MacBookPro15,2</string>
 		</dict>
 	</dict>
 	<key>OSBundleRequired</key>
