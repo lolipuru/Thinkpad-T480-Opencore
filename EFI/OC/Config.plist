@@ -48,19 +48,19 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>SSDT-USBX.aml</string>
+				<string>SSDT-VRMI.aml</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
-				<string>SSDT-USBX.aml</string>
+				<string>SSDT-VRMI.aml</string>
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>SSDT-VRMI.aml</string>
+				<string>SSDT-XHC.aml</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
-				<string>SSDT-VRMI.aml</string>
+				<string>SSDT-XHC.aml</string>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -75,6 +75,36 @@
 		<array/>
 		<key>Patch</key>
 		<array>
+			<dict>
+				<key>Base</key>
+				<string></string>
+				<key>BaseSkip</key>
+				<integer>0</integer>
+				<key>Comment</key>
+				<string>XHC: _UPC to XUPC</string>
+				<key>Count</key>
+				<integer>0</integer>
+				<key>Enabled</key>
+				<true/>
+				<key>Find</key>
+				<data>X1VQQw==</data>
+				<key>Limit</key>
+				<integer>0</integer>
+				<key>Mask</key>
+				<data></data>
+				<key>OemTableId</key>
+				<data>UHJvalNzZHQ=</data>
+				<key>Replace</key>
+				<data>WFVQQw==</data>
+				<key>ReplaceMask</key>
+				<data></data>
+				<key>Skip</key>
+				<integer>0</integer>
+				<key>TableLength</key>
+				<integer>5692</integer>
+				<key>TableSignature</key>
+				<data>U1NEVA==</data>
+			</dict>
 			<dict>
 				<key>Base</key>
 				<string></string>
