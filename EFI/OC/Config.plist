@@ -8,6 +8,14 @@
 		<array>
 			<dict>
 				<key>Comment</key>
+				<string>SSDT-BATX.aml</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-BATX.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
 				<string>SSDT-DEVICE.aml</string>
 				<key>Enabled</key>
 				<true/>
@@ -601,24 +609,6 @@
 				<true/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/BrightnessKeys</string>
-				<key>MaxKernel</key>
-				<string></string>
-				<key>MinKernel</key>
-				<string></string>
-				<key>PlistPath</key>
-				<string>Contents/Info.plist</string>
-			</dict>
-			<dict>
-				<key>Arch</key>
-				<string>Any</string>
-				<key>BundlePath</key>
-				<string>ECEnabler.kext</string>
-				<key>Comment</key>
-				<string>ECEnabler.kext</string>
-				<key>Enabled</key>
-				<true/>
-				<key>ExecutablePath</key>
-				<string>Contents/MacOS/ECEnabler</string>
 				<key>MaxKernel</key>
 				<string></string>
 				<key>MinKernel</key>
