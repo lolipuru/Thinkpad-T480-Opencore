@@ -64,14 +64,6 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>SSDT-XOSI.aml</string>
-				<key>Enabled</key>
-				<true/>
-				<key>Path</key>
-				<string>SSDT-XOSI.aml</string>
-			</dict>
-			<dict>
-				<key>Comment</key>
 				<string>SSDT-YOGASMC.aml</string>
 				<key>Enabled</key>
 				<true/>
@@ -89,7 +81,7 @@
 				<key>BaseSkip</key>
 				<integer>0</integer>
 				<key>Comment</key>
-				<string>_OSI to XOSI rename - requires SSDT-XOSI.aml</string>
+				<string>_OSI to XOSI rename</string>
 				<key>Count</key>
 				<integer>0</integer>
 				<key>Enabled</key>
