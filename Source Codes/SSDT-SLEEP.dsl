@@ -8,14 +8,14 @@
  *
  * Original Table Header:
  *     Signature        "SSDT"
- *     Length           0x00000663 (1635)
+ *     Length           0x00000656 (1622)
  *     Revision         0x02
- *     Checksum         0x28
+ *     Checksum         0xBA
  *     OEM ID           "T480"
  *     OEM Table ID     "SLEEP"
  *     OEM Revision     0x00001000 (4096)
  *     Compiler ID      "INTL"
- *     Compiler Version 0x20210105 (539033861)
+ *     Compiler Version 0x20241212 (539234834)
  */
 DefinitionBlock ("", "SSDT", 2, "T480", "SLEEP", 0x00001000)
 {
@@ -41,11 +41,10 @@ DefinitionBlock ("", "SSDT", 2, "T480", "SLEEP", 0x00001000)
     External (TBTS, FieldUnitObj)
     External (ZPRW, MethodObj)    // 2 Arguments
     External (ZPTS, MethodObj)    // 1 Arguments
-    External (ZWAK, MethodObj)    // 1 Arguments
 
     Name (DIEN, Zero)
     Name (INIB, One)
-    If (OSDW ())
+    If (_OSI ("Darwin"))
     {
         Debug = "SLEEP: Enabling comprehensive S3-patching..."
         STY0 = Zero
@@ -80,6 +79,35 @@ DefinitionBlock ("", "SSDT", 2, "T480", "SLEEP", 0x00001000)
 
     Scope (\)
     {
+        Method (DTGP, 5, NotSerialized)
+        {
+            If ((Arg0 == ToUUID ("a0b5b7c6-1318-441c-b0c9-fe695eaf949b") /* Unknown UUID */))
+            {
+                If ((Arg1 == One))
+                {
+                    If ((Arg2 == Zero))
+                    {
+                        Arg4 = Buffer (One)
+                            {
+                                 0x03                                             // .
+                            }
+                        Return (One)
+                    }
+
+                    If ((Arg2 == One))
+                    {
+                        Return (One)
+                    }
+                }
+            }
+
+            Arg4 = Buffer (One)
+                {
+                     0x00                                             // .
+                }
+            Return (Zero)
+        }
+
         Method (SPTS, 0, NotSerialized)
         {
             Debug = "SLEEP:SPTS"
@@ -146,21 +174,6 @@ DefinitionBlock ("", "SSDT", 2, "T480", "SLEEP", 0x00001000)
                         \_SB.PCI0.HDAS.PMEE = Zero
                     }
                 }
-            }
-        }
-
-        If (CondRefOf (\ZWAK))
-        {
-            Method (_WAK, 1, Serialized)  // _WAK: Wake
-            {
-                Debug = Concatenate ("SLEEP:_WAK - called Arg0: ", Arg0)
-                If ((OSDW () && (Arg0 < 0x05)))
-                {
-                    SWAK ()
-                }
-
-                Local0 = ZWAK (Arg0)
-                Return (Local0)
             }
         }
 
