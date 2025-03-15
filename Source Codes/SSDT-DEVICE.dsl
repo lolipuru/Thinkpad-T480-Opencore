@@ -25,7 +25,6 @@ DefinitionBlock ("", "SSDT", 2, "T480", "DEVICE", 0x00000000)
     External (_SB_.PCI0.LPCB, DeviceObj)
     External (_SB_.PCI0.LPCB.KBD_, DeviceObj)
     External (_SB_.PCI0.SBUS, DeviceObj)
-    External (XPRW, MethodObj)    // 2 Arguments
 
     Scope (_SB)
     {
@@ -226,32 +225,6 @@ DefinitionBlock ("", "SSDT", 2, "T480", "DEVICE", 0x00000000)
                 }
             }
         }
-    }
-
-    Method (GPRW, 2, NotSerialized)
-    {
-        If (_OSI ("Darwin"))
-        {
-            If ((0x6D == Arg0))
-            {
-                Return (Package (0x02)
-                {
-                    0x6D, 
-                    Zero
-                })
-            }
-
-            If ((0x0D == Arg0))
-            {
-                Return (Package (0x02)
-                {
-                    0x0D, 
-                    Zero
-                })
-            }
-        }
-
-        Return (XPRW (Arg0, Arg1))
     }
 
     If (_OSI ("Darwin"))
