@@ -9,9 +9,9 @@
 			<key>PciRoot(0x0)/Pci(0x2,0x0)</key>
 			<dict>
 				<key>AAPL00,override-no-connect</key>
- 				<data>AP///////wANrskUAAAAAAgaAQSQHxF4Aihll1lUjiceUFQAAAABAQEBAQEBAQEBAQEB
+ 				<data>AP///////wANrskUAAAAAAgaAQSVHxF4Aihll1lUjiceUFQAAAABAQEBAQEBAQEBAQEB
  				AQEBtDuASnE4NEBQPGgANa0QAAAYAAAA/gBOMTQwSENBLUVBQgogAAAA/gBDTU4KICAg
- 				ICAgICAgAAAA/gBOMTQwSENBLUVBQgogAEM=
+ 				ICAgICAgAAAA/gBOMTQwSENBLUVBQgogAD4=
  				</data>
 			</dict>
 		</dict>
