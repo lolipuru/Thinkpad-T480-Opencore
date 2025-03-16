@@ -263,7 +263,7 @@
 			<key>DisableVariableWrite</key>
 			<false/>
 			<key>DiscardHibernateMap</key>
-			<false/>
+			<true/>
 			<key>EnableSafeModeSlide</key>
 			<true/>
 			<key>EnableWriteUnprotector</key>
@@ -479,6 +479,24 @@
 				<true/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/RestrictEvents</string>
+				<key>MaxKernel</key>
+				<string></string>
+				<key>MinKernel</key>
+				<string></string>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
+			</dict>
+			<dict>
+				<key>Arch</key>
+				<string>Any</string>
+				<key>BundlePath</key>
+				<string>RTCMemoryFixup.kext</string>
+				<key>Comment</key>
+				<string>RTCMemoryFixup.kext</string>
+				<key>Enabled</key>
+				<true/>
+				<key>ExecutablePath</key>
+				<string>Contents/MacOS/RTCMemoryFixup</string>
 				<key>MaxKernel</key>
 				<string></string>
 				<key>MinKernel</key>
@@ -814,6 +832,24 @@
 				<key>Arch</key>
 				<string>Any</string>
 				<key>BundlePath</key>
+				<string>HibernationFixup.kext</string>
+				<key>Comment</key>
+				<string>HibernationFixup.kext</string>
+				<key>Enabled</key>
+				<true/>
+				<key>ExecutablePath</key>
+				<string>Contents/MacOS/HibernationFixup</string>
+				<key>MaxKernel</key>
+				<string></string>
+				<key>MinKernel</key>
+				<string></string>
+				<key>PlistPath</key>
+				<string>Contents/Info.plist</string>
+			</dict>
+			<dict>
+				<key>Arch</key>
+				<string>Any</string>
+				<key>BundlePath</key>
 				<string>IO80211FamilyLegacy.kext</string>
 				<key>Comment</key>
 				<string>IO80211FamilyLegacy.kext</string>
@@ -1025,7 +1061,7 @@
 			<key>ConsoleAttributes</key>
 			<integer>0</integer>
 			<key>HibernateMode</key>
-			<string>None</string>
+			<string>NVRAM</string>
 			<key>HibernateSkipsPicker</key>
 			<false/>
 			<key>HideAuxiliary</key>
@@ -1136,7 +1172,7 @@
 				<key>SystemAudioVolume</key>
 				<data>Rg==</data>
 				<key>boot-args</key>
-				<string>keepsyms=1</string>
+				<string>rtcfx_exclude=80-AB keepsyms=1</string>
 				<key>csr-active-config</key>
 				<data>AwoAAA==</data>
 				<key>prev-lang:kbd</key>
@@ -1548,7 +1584,20 @@
 			<false/>
 		</dict>
 		<key>ReservedMemory</key>
-		<array/>
+		<array>
+			<dict>
+				<key>Address</key>
+				<integer>569344</integer>
+				<key>Comment</key>
+				<string>Fix hibernation mode 25 black screen</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Size</key>
+				<integer>4096</integer>
+				<key>Type</key>
+				<string>RuntimeCode</string>
+			</dict>
+		</array>
 		<key>Unload</key>
 		<array/>
 	</dict>
