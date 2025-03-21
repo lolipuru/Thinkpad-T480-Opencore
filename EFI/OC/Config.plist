@@ -405,6 +405,22 @@
 				<data>AAAWWQ==</data>
 				<key>device-id</key>
 				<data>FlkAAA==</data>
+				<key>complete-modeset</key>
+ 				<data>AQAAAA==</data>
+ 				<key>complete-modeset-framebuffers</key>
+ 				<data>AAAAAAAAAAE=</data>
+ 				<key>enable-hdmi20</key>
+ 				<data>AQAAAA==</data>
+ 				<key>force-online</key>
+ 				<data>AAgAAA==</data>
+				<key>framebuffer-con1-enable</key>
+				<data>AQAAAA==</data>
+				<key>framebuffer-con1-type</key>
+				<data>AAgAAA==</data>
+				<key>framebuffer-con2-enable</key>
+				<data>AQAAAA==</data>
+				<key>framebuffer-con2-type</key>
+				<data>AAgAAA==</data>
 				<key>framebuffer-fbmem</key>
 				<data>AACQAA==</data>
 				<key>framebuffer-patch-enable</key>
