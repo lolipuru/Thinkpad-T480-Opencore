@@ -44,7 +44,7 @@ DefinitionBlock ("", "SSDT", 2, "T480", "XHC", 0x00001000)
 
     Scope (\_SB.PCI0.XHC)
     {
-        If (OSDW ())
+        If (_OSI ("Darwin"))
         {
             Name (_GPE, 0x6D)  // _GPE: General Purpose Events
         }
@@ -73,13 +73,16 @@ DefinitionBlock ("", "SSDT", 2, "T480", "XHC", 0x00001000)
     {
         Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
         {
-            Return (Package (0x04)
+            If (_OSI ("Darwin"))
             {
-                0xFF, 
-                0x03, 
-                Zero, 
-                Zero
-            })
+                Return (Package (0x04)
+                {
+                    0xFF, 
+                    0x03, 
+                    Zero, 
+                    Zero
+                })   
+            }
         }
     }
 
@@ -87,13 +90,16 @@ DefinitionBlock ("", "SSDT", 2, "T480", "XHC", 0x00001000)
     {
         Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
         {
-            Return (Package (0x04)
+            If (_OSI ("Darwin"))
             {
-                0xFF, 
-                0x03, 
-                Zero, 
-                Zero
-            })
+                Return (Package (0x04)
+                {
+                    0xFF, 
+                    0x03, 
+                    Zero, 
+                    Zero
+                })
+            }
         }
     }
 
@@ -101,7 +107,7 @@ DefinitionBlock ("", "SSDT", 2, "T480", "XHC", 0x00001000)
     {
         Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
         {
-            If (OSDW ())
+            If (_OSI ("Darwin"))
             {
                 Return (Package (0x04)
                 {
@@ -128,13 +134,16 @@ DefinitionBlock ("", "SSDT", 2, "T480", "XHC", 0x00001000)
     {
         Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
         {
-            Return (Package (0x04)
+            If (_OSI ("Darwin"))
             {
-                0xFF, 
-                0x08, 
-                Zero, 
-                Zero
-            })
+                Return (Package (0x04)
+                {
+                    0xFF, 
+                    0x08,
+                    Zero, 
+                    Zero
+                })
+            }
         }
     }
 
@@ -142,7 +151,7 @@ DefinitionBlock ("", "SSDT", 2, "T480", "XHC", 0x00001000)
     {
         Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
         {
-            If (OSDW ())
+            If (_OSI ("Darwin"))
             {
                 Return (Package (0x04)
                 {
@@ -169,13 +178,16 @@ DefinitionBlock ("", "SSDT", 2, "T480", "XHC", 0x00001000)
     {
         Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
         {
-            Return (Package (0x04)
+            If (_OSI ("Darwin"))
             {
-                0xFF, 
-                0xFF, 
-                Zero, 
-                Zero
-            })
+                Return (Package (0x04)
+                {
+                    0xFF, 
+                    0xFF,
+                    Zero, 
+                    Zero
+                })
+            }
         }
     }
 
@@ -183,13 +195,16 @@ DefinitionBlock ("", "SSDT", 2, "T480", "XHC", 0x00001000)
     {
         Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
         {
-            Return (Package (0x04)
+            If (_OSI ("Darwin"))
             {
-                0xFF, 
-                0xFF, 
-                Zero, 
-                Zero
-            })
+                Return (Package (0x04)
+                {
+                    0xFF, 
+                    0xFF,
+                    Zero, 
+                    Zero
+                })
+            }
         }
     }
 
@@ -197,13 +212,16 @@ DefinitionBlock ("", "SSDT", 2, "T480", "XHC", 0x00001000)
     {
         Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
         {
-            Return (Package (0x04)
+            If (_OSI ("Darwin"))
             {
-                0xFF, 
-                0xFF, 
-                Zero, 
-                Zero
-            })
+                Return (Package (0x04)
+                {
+                    0xFF, 
+                    0xFF,
+                    Zero, 
+                    Zero
+                })
+            }
         }
     }
 
@@ -211,7 +229,7 @@ DefinitionBlock ("", "SSDT", 2, "T480", "XHC", 0x00001000)
     {
         Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
         {
-            If (OSDW ())
+            If (_OSI ("Darwin"))
             {
                 Return (Package (0x04)
                 {
@@ -238,13 +256,16 @@ DefinitionBlock ("", "SSDT", 2, "T480", "XHC", 0x00001000)
     {
         Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
         {
-            Return (Package (0x04)
+            If (_OSI ("Darwin"))
             {
-                0xFF, 
-                0xFF, 
-                Zero, 
-                Zero
-            })
+                Return (Package (0x04)
+                {
+                    0xFF, 
+                    0xFF,
+                    Zero, 
+                    Zero
+                })
+            }
         }
     }
 
@@ -252,13 +273,16 @@ DefinitionBlock ("", "SSDT", 2, "T480", "XHC", 0x00001000)
     {
         Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
         {
-            Return (Package (0x04)
+            If (_OSI ("Darwin"))
             {
-                0xFF, 
-                0x03, 
-                Zero, 
-                Zero
-            })
+                Return (Package (0x04)
+                {
+                    0xFF, 
+                    0x03,
+                    Zero, 
+                    Zero
+                })
+            }
         }
     }
 
@@ -266,13 +290,16 @@ DefinitionBlock ("", "SSDT", 2, "T480", "XHC", 0x00001000)
     {
         Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
         {
-            Return (Package (0x04)
+            If (_OSI ("Darwin"))
             {
-                0xFF, 
-                0x03, 
-                Zero, 
-                Zero
-            })
+                Return (Package (0x04)
+                {
+                    0xFF, 
+                    0x03,
+                    Zero, 
+                    Zero
+                })
+            }
         }
     }
 
@@ -280,13 +307,16 @@ DefinitionBlock ("", "SSDT", 2, "T480", "XHC", 0x00001000)
     {
         Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
         {
-            Return (Package (0x04)
+            If (_OSI ("Darwin"))
             {
-                0xFF, 
-                0xFF, 
-                Zero, 
-                Zero
-            })
+                Return (Package (0x04)
+                {
+                    0xFF, 
+                    0xFF,
+                    Zero, 
+                    Zero
+                })
+            }
         }
     }
 
@@ -294,13 +324,16 @@ DefinitionBlock ("", "SSDT", 2, "T480", "XHC", 0x00001000)
     {
         Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
         {
-            Return (Package (0x04)
+            If (_OSI ("Darwin"))
             {
-                0xFF, 
-                0x09, 
-                Zero, 
-                Zero
-            })
+                Return (Package (0x04)
+                {
+                    0xFF, 
+                    0x09,
+                    Zero, 
+                    Zero
+                })
+            }
         }
     }
 
@@ -308,13 +341,16 @@ DefinitionBlock ("", "SSDT", 2, "T480", "XHC", 0x00001000)
     {
         Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
         {
-            Return (Package (0x04)
+            If (_OSI ("Darwin"))
             {
-                0xFF, 
-                0xFF, 
-                Zero, 
-                Zero
-            })
+                Return (Package (0x04)
+                {
+                    0xFF, 
+                    0xFF, 
+                    Zero, 
+                    Zero
+                })
+            }
         }
     }
 
@@ -322,13 +358,16 @@ DefinitionBlock ("", "SSDT", 2, "T480", "XHC", 0x00001000)
     {
         Method (_UPC, 0, Serialized)  // _UPC: USB Port Capabilities
         {
-            Return (Package (0x04)
+            If (_OSI ("Darwin"))
             {
-                0xFF, 
-                0xFF, 
-                Zero, 
-                Zero
-            })
+                Return (Package (0x04)
+                {
+                    0xFF, 
+                    0xFF, 
+                    Zero, 
+                    Zero
+                })
+            }
         }
     }
 
@@ -342,13 +381,9 @@ DefinitionBlock ("", "SSDT", 2, "T480", "XHC", 0x00001000)
                 Local0 = Package (0x08)
                     {
                         "kUSBSleepPortCurrentLimit", 
-                        0x0834, 
+                        0x0BB8,
                         "kUSBWakePortCurrentLimit", 
-                        0x0834, 
-                        "kUSBSleepPowerSupply", 
-                        0x13EC, 
-                        "kUSBWakePowerSupply", 
-                        0x13EC
+                        0x0BB8
                     }
                 DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
                 Return (Local0)
@@ -356,7 +391,7 @@ DefinitionBlock ("", "SSDT", 2, "T480", "XHC", 0x00001000)
 
             Method (_STA, 0, NotSerialized)  // _STA: Status
             {
-                If (OSDW ())
+                If (_OSI ("Darwin"))
                 {
                     Return (0x0F)
                 }
