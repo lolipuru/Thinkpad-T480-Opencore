@@ -1,7 +1,6 @@
 # Lenovo ThinkPad T480 - OpenCore Configuation
 
-![Screenshot 2568-03-16 at 13 29 36](https://github.com/user-attachments/assets/f11083f6-32b5-41dd-a1d4-571789b92fce)
-
+![Screenshot 2025-06-13 at 10 15 55 AM](https://github.com/user-attachments/assets/57211080-41e2-4a24-929f-022165f79763)
 
 # ⚠️⚠️⚠️ WARNING ⚠️⚠️⚠️
 THIS BRANCH IS HIGHLY WIP, USABLE, BUT KEEP IT IN MIND THAT IT'S HEAVILY AMEND AND FORCE PUSH
@@ -9,6 +8,9 @@ AND I WON'T TAKE RESPONSIBLE IF THIS BRANCH BREAK SOMETHING, OR EVEN WIPE YOUR H
 
 ## ⚠️ Disclaimer
 This guide is only for the Lenovo ThinkPad T480. I am NOT responsible for any harm you cause to your device. This guide is provided "as-is" and all steps taken are done at your own risk.
+
+## ⚠️ Notes
+OCLP Patcher isn't available for Tahoe yet, so use it at your own risk.
 
 > The ACPI patches and the style of this README are from [EETagent](https://github.com/EETagent/T480-OpenCore-Hackintosh).
 
