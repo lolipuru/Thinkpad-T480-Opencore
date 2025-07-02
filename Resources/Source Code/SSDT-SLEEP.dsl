@@ -179,7 +179,7 @@ DefinitionBlock ("", "SSDT", 2, "T480", "SLEEP", 0x00001000)
 
         Method (GPRW, 2, Serialized)
         {
-            If (OSDW ())
+            If (_OSI ("Darwin"))
             {
                 Local0 = Package (0x02)
                     {
